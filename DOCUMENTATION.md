@@ -143,13 +143,30 @@ audio = generator.generate(
 torchaudio.save("audio.wav", audio.unsqueeze(0).cpu(), generator.sample_rate)
 ```
 
-## Model Weights
+## Model Weights and Files
 
-The model weights are hosted on Hugging Face and are quite large:
-- ckpt.pt: 6.22 GB
-- model.safetensors: 6.21 GB
+The model weights and files are hosted on Hugging Face and are included in this repository with the exact same directory structure:
 
-See the [model_weights.md](model_weights.md) file for detailed information on accessing and downloading these files.
+### Main Directory Files
+- **ckpt.pt**: 6.22 GB - PyTorch checkpoint file containing the model weights
+- **model.safetensors**: 6.21 GB - SafeTensors format of the model weights (more secure alternative)
+- **config.json**: 155 Bytes - Configuration file for the model
+- **.gitattributes**: 121 Bytes - Git attributes file for the repository
+- **README.md**: 4.16 KB - Original documentation from Hugging Face (preserved in `ORIGINAL_README.md`)
+
+### Prompts Directory
+The `prompts` directory contains audio samples that can be used for testing and as context for the model:
+
+- **conversational_a.wav**: 2.65 MB - Conversational speech sample for speaker A
+- **conversational_b.wav**: 2.65 MB - Conversational speech sample for speaker B
+- **read_speech_a.wav**: 831 KB - Read speech sample, variant A
+- **read_speech_b.wav**: 576 KB - Read speech sample, variant B
+- **read_speech_c.wav**: 386 KB - Read speech sample, variant C
+- **read_speech_d.wav**: 436 KB - Read speech sample, variant D
+
+These audio files serve as examples for the model's input and can be used to test the model's capabilities with different speech styles and speakers. The conversational samples demonstrate dialogue between two speakers, while the read speech samples provide examples of more formal, scripted speech.
+
+See the [model_weights.md](model_weights.md) file for detailed information on these files and how they're used by the model.
 
 ## Watermarking Functionality
 

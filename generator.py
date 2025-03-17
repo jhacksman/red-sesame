@@ -164,7 +164,9 @@ class Generator:
 
 
 def load_csm_1b(device: str = "cuda") -> Generator:
-    model = Model.from_pretrained("sesame/csm-1b")
+    # Load model from local files instead of downloading from Hugging Face
+    # This uses the local ckpt.pt or model.safetensors file
+    model = Model.from_local("./")
     model.to(device=device, dtype=torch.bfloat16)
 
     generator = Generator(model)

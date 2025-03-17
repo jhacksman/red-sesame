@@ -14,14 +14,33 @@ Key components:
 
 ## Repository Contents
 
+This repository contains all files from the original Sesame CSM-1B model:
+
+### Main Files
 - `generator.py`: Main code for generating speech using the model
 - `models.py`: Model architecture definitions
 - `watermarking.py`: Code for watermarking generated audio
 - `requirements.txt`: Dependencies required to run the model
+- `ckpt.pt`: PyTorch checkpoint file (6.22 GB)
+- `model.safetensors`: SafeTensors format of the model weights (6.21 GB)
+- `config.json`: Configuration file for the model
+- `.gitattributes`: Git attributes file from the original repository
+- `ORIGINAL_README.md`: Original documentation from Hugging Face
+
+### Documentation
 - `DOCUMENTATION.md`: Comprehensive documentation about the model
-- `model_weights.md`: Information about accessing the model weights
+- `model_weights.md`: Information about the model weights
 - `setup.sh`: Script to help with model installation
 - `LICENSE`: Apache 2.0 license from the original repository
+
+### Prompts Directory
+The `prompts` directory contains audio samples that can be used for testing and as context for the model:
+- `conversational_a.wav`: Conversational speech sample (2.65 MB)
+- `conversational_b.wav`: Conversational speech sample (2.65 MB)
+- `read_speech_a.wav`: Read speech sample (831 KB)
+- `read_speech_b.wav`: Read speech sample (576 KB)
+- `read_speech_c.wav`: Read speech sample (386 KB)
+- `read_speech_d.wav`: Read speech sample (436 KB)
 
 ## Quick Start
 
@@ -58,7 +77,7 @@ Key components:
 
 For detailed information about the model, see:
 - [DOCUMENTATION.md](DOCUMENTATION.md): Comprehensive documentation about the model architecture, setup, and usage
-- [model_weights.md](model_weights.md): Information about accessing and using the model weights
+- [model_weights.md](model_weights.md): Information about the model weights and included audio files
 
 ## Security Considerations
 
