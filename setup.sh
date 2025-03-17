@@ -61,13 +61,21 @@ echo "You need to log in to Hugging Face to access the model weights."
 echo "Please run the following command and enter your Hugging Face token when prompted:"
 echo "huggingface-cli login"
 
-# Provide instructions for downloading model weights
-echo ""
-echo "Model weights information:"
-echo "-------------------------"
-echo "The model weights are large files (over 12GB total) and are not included in this repository."
-echo "They will be automatically downloaded when you run the model for the first time."
-echo "For more information, see model_weights.md"
+# Check if model files exist
+if [ ! -f "ckpt.pt" ] || [ ! -f "model.safetensors" ]; then
+    echo ""
+    echo "Model weight files not found. You need to recombine the chunked files first."
+    echo "Please run the recombination script:"
+    echo "  chmod +x recombine.sh"
+    echo "  ./recombine.sh"
+    echo "Then move the recombined files to the main directory:"
+    echo "  mv output/ckpt.pt ."
+    echo "  mv output/model.safetensors ."
+    echo "For more information, see CHUNKS.md"
+    echo ""
+else
+    echo "Model weight files found."
+fi
 echo ""
 
 # Provide a simple test script

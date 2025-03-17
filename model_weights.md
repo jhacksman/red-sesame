@@ -1,20 +1,48 @@
 # Sesame CSM-1B Model Weights
 
-The Sesame CSM-1B model weights are hosted on Hugging Face and are required to use the model. This document provides information on the model weight files and how to access them.
+The Sesame CSM-1B model weights are required to use the model. This document provides information on the model weight files and how to access them.
 
 ## Model Weight Files
 
-All model files from [https://huggingface.co/sesame/csm-1b](https://huggingface.co/sesame/csm-1b) are now included in this repository:
+All model files from [https://huggingface.co/sesame/csm-1b](https://huggingface.co/sesame/csm-1b) are included in this repository:
 
 ### Main Directory Files
 
 | File | Size | Description |
 |------|------|-------------|
-| ckpt.pt | 6.22 GB | PyTorch checkpoint file containing the model weights |
-| model.safetensors | 6.21 GB | SafeTensors format of the model weights (more secure alternative to PyTorch format) |
 | config.json | 155 Bytes | Configuration file for the model |
-| README.md | 4.16 KB | Original documentation from Hugging Face |
+| ORIGINAL_README.md | 4.16 KB | Original documentation from Hugging Face |
 | .gitattributes | 121 Bytes | Git attributes file |
+
+### Chunked Model Weight Files
+
+Due to GitHub's file size limitations (max 2GB per file), the large model weight files have been split into 1GB chunks:
+
+#### PyTorch Checkpoint (ckpt.pt)
+Total size: 6.22 GB, split into 6 chunks:
+
+| File | Size | Description |
+|------|------|-------------|
+| chunks/ckpt/ckpt.pt.part-aa | 1 GB | Chunk 1 of 6 |
+| chunks/ckpt/ckpt.pt.part-ab | 1 GB | Chunk 2 of 6 |
+| chunks/ckpt/ckpt.pt.part-ac | 1 GB | Chunk 3 of 6 |
+| chunks/ckpt/ckpt.pt.part-ad | 1 GB | Chunk 4 of 6 |
+| chunks/ckpt/ckpt.pt.part-ae | 1 GB | Chunk 5 of 6 |
+| chunks/ckpt/ckpt.pt.part-af | ~851 MB | Chunk 6 of 6 |
+
+#### SafeTensors Format (model.safetensors)
+Total size: 6.21 GB, split into 6 chunks:
+
+| File | Size | Description |
+|------|------|-------------|
+| chunks/safetensors/model.safetensors.part-aa | 1 GB | Chunk 1 of 6 |
+| chunks/safetensors/model.safetensors.part-ab | 1 GB | Chunk 2 of 6 |
+| chunks/safetensors/model.safetensors.part-ac | 1 GB | Chunk 3 of 6 |
+| chunks/safetensors/model.safetensors.part-ad | 1 GB | Chunk 4 of 6 |
+| chunks/safetensors/model.safetensors.part-ae | 1 GB | Chunk 5 of 6 |
+| chunks/safetensors/model.safetensors.part-af | ~842 MB | Chunk 6 of 6 |
+
+See [CHUNKS.md](CHUNKS.md) for instructions on how to recombine these chunks into the original files.
 
 ### Prompts Directory Files
 
