@@ -21,11 +21,15 @@ This repository contains all files from the original Sesame CSM-1B model:
 - `models.py`: Model architecture definitions
 - `watermarking.py`: Code for watermarking generated audio
 - `requirements.txt`: Dependencies required to run the model
-- `ckpt.pt`: PyTorch checkpoint file (6.22 GB)
-- `model.safetensors`: SafeTensors format of the model weights (6.21 GB)
 - `config.json`: Configuration file for the model
 - `.gitattributes`: Git attributes file from the original repository
 - `ORIGINAL_README.md`: Original documentation from Hugging Face
+
+### Model Weight Files (Split into Chunks)
+- `chunks/ckpt/`: Directory containing 1GB chunks of the PyTorch checkpoint file (6.22 GB total)
+- `chunks/safetensors/`: Directory containing 1GB chunks of the SafeTensors model file (6.21 GB total)
+- `recombine.sh`: Script to recombine the chunked files
+- `CHUNKS.md`: Documentation on how to recombine and use the chunked files
 
 ### Documentation
 - `DOCUMENTATION.md`: Comprehensive documentation about the model
@@ -50,12 +54,27 @@ The `prompts` directory contains audio samples that can be used for testing and 
    cd red-sesame
    ```
 
-2. Run the setup script:
+2. Recombine the model weight files:
+   ```bash
+   # Make the recombination script executable
+   chmod +x recombine.sh
+   
+   # Run the script to recombine the chunked files
+   ./recombine.sh
+   
+   # Move the recombined files to the main directory
+   mv output/ckpt.pt .
+   mv output/model.safetensors .
+   ```
+   
+   See [CHUNKS.md](CHUNKS.md) for detailed instructions on recombining the files.
+
+3. Run the setup script:
    ```bash
    ./setup.sh
    ```
 
-3. Generate speech:
+4. Generate speech:
    ```python
    from generator import load_csm_1b
    import torchaudio
